@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.central-card{
+    position: relative;
+    width: 450px;
+    height: 500px;
+    transform-style: preserve-3d;
+    transform: perspective(2500px);
+    transition: 3s;
+}
+.card{
+    overflow: hidden;
+    position: relative;
+    width: 450px;
+    height: 500px;
+    background-color: #f1af09;
+    box-shadow: 15px 1px 50px rgba(0, 0, 0, .2);
+    border-radius: 10px;
+}
+.icons{
+    position: absolute;
+    height: 150px;
+    overflow: visible;
+    top: 280px;
+    left: 100px;
+}
+.wishes{
+    position: absolute;
+    color: #5dcb7e;
+    top: 50px;
+    left: 80px;
+    width: 250px;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Raleway';
+}
+.subtext{
+    position: absolute;
+    color: #bec995;
+    top: 120px;
+    width: 450px;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Ephesis' cursive;
+}
+input#open{
+    display: none;
+}
+.card-front{
+    position: absolute;
+    background-color: #fff;
+    width: 450px;
+    height: 500px;
+    overflow: hidden;
+    transform-origin: left;
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .13), 30px 0 50px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; 
+}
+.click-to-open{
+    position: absolute;
+    color: #fff;
+    top: 200px;
+    width: 450px;
+    text-align: center;
+    font-size: 35px;
+    font-family: 'Raleway Dots';
+}
+.open{
+    position: absolute;
+    width: 450px;
+    height: 500px;
+    left: 0;
+    top: 0;
+    background-color: transparent;
+    z-index: 6;
+    cursor: pointer;
+}
+.card::before{
+    content: "";
+    position: absolute;
+    width: 550px;
+    height: 250px;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 300px;
+    left: -25px;
+    box-shadow: -130px -10px #f8f9fa, 80px -20px #e9ecef;
+}
+#open:checked~.card-front{
+    transform: rotateY(-155deg);
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .13), 30px 0 50px;
+    border-radius: 10px;
+}
+#open:checked~.card-front:before{
+    z-index: 5;
+}
+.icon-topo{
+    background-color: transparent;
+}
+.card-inside{
+    position: absolute;
+    background-color: rgba(228, 224, 84, 0.208);
+    width: 450px;
+    height: 500px;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; 
+}
+.flake{
+    position: absolute; /* Posicionamento absoluto em relação ao seu contêiner mais próximo com posição relativa ou absoluta */
+    transform: translateY(0); /* Inicia sem deslocamento vertical */
+    color: white; /* Cor branca para o texto (floco de neve) */
+    font-size: 35px; /* Tamanho do texto (floco de neve) */
+    animation: fall 1s linear; /* Aplica a animação 'fall' com duração de 1 segundo em estilo linear */
+    top: -10vh;
+}
+@keyframes fall {
+    0% {
+        top: -50px;
+    }
+    100%{
+        top: 900px;
+    }
+}
